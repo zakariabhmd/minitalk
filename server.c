@@ -6,8 +6,19 @@
 /*   By: zbabahmi <zbabahmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:08:17 by zbabahmi          #+#    #+#             */
-/*   Updated: 2023/02/10 16:10:26 by zbabahmi         ###   ########.fr       */
+/*   Updated: 2023/02/10 22:11:45 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+int main()
+{
+    int pid;
+    
+    pid = getpid();
+    ft_putnbr_fd(pid);
+    write(1, "\n", 1);
+    while (1)
+        ;
+}
