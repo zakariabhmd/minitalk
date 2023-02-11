@@ -6,13 +6,13 @@
 /*   By: zbabahmi <zbabahmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:02:11 by zbabahmi          #+#    #+#             */
-/*   Updated: 2023/02/10 22:08:53 by zbabahmi         ###   ########.fr       */
+/*   Updated: 2023/02/11 16:59:58 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int	ft_atoi(char *s)
+int	ft_atoi(char *str)
 {
 	int	i;
 	int	sign;
@@ -39,27 +39,26 @@ int	ft_atoi(char *s)
 	return (result * sign);
 }
 
-void	ft_putnbr_fd(int n, int fd)
+void ft_putchar(int c)
+{
+	write(1, &c, 1);
+}
+void	ft_putnbr(int n)
 {
 	char	str;
-
-	if (n == -2147483648)
+	
+	if (n >= 0 && n <= 9)
 	{
-		ft_putnbr_fd(n / 10, fd);
-		write (fd, "8", 1);
-		return ;
+		ft_putchar(n + '0');
 	}
 	else if (n < 0)
 	{
-		write (fd, "-", 1);
+		write (1, "-", 1);
 		n *= -1;
 	}
-	if (n >= 10)
+	else if (n >= 10)
 	{
-		ft_putnbr_fd(n / 10, fd);
-		str = '0' + n % 10;
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
 	}
-	else
-		str = '0' + n;
-	write (fd, &str, 1);
 }

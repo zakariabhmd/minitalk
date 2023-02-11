@@ -6,7 +6,7 @@
 /*   By: zbabahmi <zbabahmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:08:17 by zbabahmi          #+#    #+#             */
-/*   Updated: 2023/02/10 22:11:45 by zbabahmi         ###   ########.fr       */
+/*   Updated: 2023/02/11 16:59:45 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main()
     int pid;
     
     pid = getpid();
-    ft_putnbr_fd(pid);
+    ft_putnbr(pid);
     write(1, "\n", 1);
     while (1)
         ;
