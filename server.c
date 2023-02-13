@@ -6,69 +6,53 @@
 /*   By: zbabahmi <zbabahmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:08:17 by zbabahmi          #+#    #+#             */
-/*   Updated: 2023/02/13 19:16:57 by zbabahmi         ###   ########.fr       */
+/*   Updated: 2023/02/13 21:55:52 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-char    convert_dec(char *str)
+void    convert_dec(char *str)
 {
     int i;
-    int index;
-    int result;
-    int vlu;
-    int car;
+    char c;
     
-    car = 0;
-    vlu = 0;
-    result = 1;
-    index = 0;
-    i = strlen(str);
-    while (i >= 0)
+    i = 0;
+    while (i < 8)
     {
-        result = 1;
-        if (str[i] == '1')
-        {
-            index = vlu;
-            while (index > 1)
-            {
-                result *= 2;
-                index--;
-            }
-            car += result;
-        }
-        vlu++;
-        i--;
+        c = c * 2 + str[i] - 48;
+        i++;
     }
-    return ((char)car);
+    ft_putchar(c);
 }
 
 void    handler(int signal, siginfo_t *info, void *utp)
 {
     (void)utp;
     static char str[8];
-    static int i = 7;
-    // char c;
+    static int i;
+    static int remember;
+    int a;
+    a = info->si_pid;
+    if (a != remember)
+    {
+        i = 0;
+        remember = a;
+    }
     if (signal == SIGUSR1)
     {
-        // write(1, "0", 1);
         str[i] = '0';
-        i--;
+        i++;
     }
     if (signal == SIGUSR2)
     {
-        // write(1, "1", 1);
         str[i] = '1';
-        i--;
-    }    
-    // write(1, &str, 8);
-    // write(1, "\n", 1);
-
+        i++;
+    }
     if (i == 8)
     {
-    printf ("%c\n" ,convert_dec(str));
-    i = 7;
+        convert_dec(str);
+        i = 0;
     }
 }
 
