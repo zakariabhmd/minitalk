@@ -6,7 +6,7 @@
 /*   By: zbabahmi <zbabahmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:07:46 by zbabahmi          #+#    #+#             */
-/*   Updated: 2023/02/11 17:02:07 by zbabahmi         ###   ########.fr       */
+/*   Updated: 2023/02/12 22:13:29 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ void convert_ben(char c, char *p)
     }
 	i = 7;
 	pid = ft_atoi(p);
-	while(t[i])
+	while(i >= 0)
 	{
 		if (t[i] == '0')
 			kill(pid, SIGUSR1);
 		else if (t[i] == '1')
 			kill(pid, SIGUSR2);
+        usleep(100);
 		i--;
 	}
 }
