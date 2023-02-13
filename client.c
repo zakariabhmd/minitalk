@@ -6,7 +6,7 @@
 /*   By: zbabahmi <zbabahmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:07:46 by zbabahmi          #+#    #+#             */
-/*   Updated: 2023/02/12 22:13:29 by zbabahmi         ###   ########.fr       */
+/*   Updated: 2023/02/13 19:15:29 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@ void convert_ben(char c, char *p)
     char t[8];
 	int pid;
     
+    i = 0;
+    while(i < 8)
+    {
+        t[i] = '0';
+        i++;
+    }
     i = 0;
     while (c)
     {
@@ -33,7 +39,7 @@ void convert_ben(char c, char *p)
 			kill(pid, SIGUSR1);
 		else if (t[i] == '1')
 			kill(pid, SIGUSR2);
-        usleep(100);
+        usleep(250);
 		i--;
 	}
 }
