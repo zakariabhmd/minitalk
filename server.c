@@ -6,15 +6,28 @@
 /*   By: zbabahmi <zbabahmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:08:17 by zbabahmi          #+#    #+#             */
-/*   Updated: 2023/02/12 22:23:20 by zbabahmi         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:09:50 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-void handler(int signal, siginfo_t *info, void *utp)
+110000
+void    convert_dec(char *str)
+{
+    int i;
+    char c;
+    
+    i = 0;
+    while (str[i] != '\0')
+    {
+        c *= 2 + str[i++];
+    }
+}
+
+void    handler(int signal, siginfo_t *info, void *utp)
 {
     (void)utp;
-    char *str;
+    static char str[8];
     int i=0;
     if (signal == SIGUSR1)
     {
@@ -26,7 +39,10 @@ void handler(int signal, siginfo_t *info, void *utp)
         str[i] = '1';
         i++;
     }
-    printf("bin = %s", str);
+    if (i < 8)
+    {
+        convert_dec(str);
+    }
 }
 
 int main()
@@ -42,7 +58,5 @@ int main()
     sigaction(SIGUSR2, &creminal, NULL);
     write(1, "\n", 1);
     while (1)
-    {
-        pause();
-    }
+        ;
 }
