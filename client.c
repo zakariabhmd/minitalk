@@ -6,7 +6,7 @@
 /*   By: zbabahmi <zbabahmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:07:46 by zbabahmi          #+#    #+#             */
-/*   Updated: 2023/02/13 21:47:53 by zbabahmi         ###   ########.fr       */
+/*   Updated: 2023/02/24 21:59:15 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ void convert_ben(char c, char *p)
     }
 	i = 7;
 	pid = ft_atoi(p);
+    if (pid == -1 || pid == 0 || pid == 1)
+    {
+        write(1, "pid not available\n", 18);
+        exit(1);
+    }
 	while(i >= 0)
 	{
 		if (t[i] == '0')

@@ -6,7 +6,7 @@
 /*   By: zbabahmi <zbabahmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:02:11 by zbabahmi          #+#    #+#             */
-/*   Updated: 2023/02/11 16:59:58 by zbabahmi         ###   ########.fr       */
+/*   Updated: 2023/02/24 21:52:09 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,9 @@ void ft_putchar(int c)
 {
 	write(1, &c, 1);
 }
+
 void	ft_putnbr(int n)
-{
-	char	str;
-	
+{	
 	if (n >= 0 && n <= 9)
 	{
 		ft_putchar(n + '0');
