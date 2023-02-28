@@ -5,10 +5,10 @@ NAMEC = client
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
-SRC = server.c client.c 
-cli = client.c 
-ser = server.c
-Util = utils.c 
+SRC = server_bonus.c client_bonus.c 
+cli = client_bonus.c 
+ser = server_bonus.c
+Util = utils_bonus.c 
 OBJ = $(SRC: .c=.o)
 
 all: $(NAMES) $(NAMEC)
