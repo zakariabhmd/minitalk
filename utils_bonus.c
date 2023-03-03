@@ -6,7 +6,7 @@
 /*   By: zbabahmi <zbabahmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:02:11 by zbabahmi          #+#    #+#             */
-/*   Updated: 2023/02/28 15:55:19 by zbabahmi         ###   ########.fr       */
+/*   Updated: 2023/03/02 16:25:41 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_atoi(char *str)
 	return (result * sign);
 }
 
-void ft_putchar(int c)
+void	ft_putchar(int c)
 {
 	write(1, &c, 1);
 }
