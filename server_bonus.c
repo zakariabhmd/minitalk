@@ -6,7 +6,7 @@
 /*   By: zbabahmi <zbabahmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:08:17 by zbabahmi          #+#    #+#             */
-/*   Updated: 2023/03/08 23:53:21 by zbabahmi         ###   ########.fr       */
+/*   Updated: 2023/03/09 00:15:24 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	handler(int signal, siginfo_t *info, void *utp)
 	if (i == 8)
 	{
 		convert_dec(str);
-		kill(info->si_pid,SIGUSR1);
+		kill (info->si_pid, SIGUSR1);
 		i = 0;
 	}
 }

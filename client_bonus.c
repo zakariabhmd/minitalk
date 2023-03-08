@@ -6,24 +6,26 @@
 /*   By: zbabahmi <zbabahmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:07:46 by zbabahmi          #+#    #+#             */
-/*   Updated: 2023/03/08 23:58:42 by zbabahmi         ###   ########.fr       */
+/*   Updated: 2023/03/09 00:24:58 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk_bonus.h"
-int g_len;
 
-void reciever(int signal, siginfo_t *info, void *utp){
-static int a;
-		(void)utp;
-				(void)info;
+int	g_len;
 
-		if(signal == SIGUSR1)
+void	reciever(int signal, siginfo_t *info, void *utp)
+{
+	static int	a;
+
+	(void)utp;
+	(void)info;
+	if (signal == SIGUSR1)
 		a++;
-		if(a == g_len)
-		write(1,"warah osslte",12);
-
+	if (a == g_len)
+		write (1, "warah osslte", 12);
 }
+
 void	tab(char *t)
 {
 	int	i;
@@ -74,16 +76,15 @@ void	convert_ben(unsigned char c, char *p)
 
 int	main(int ac, char **av)
 {
-	int	i;
-	
+	int					i;
+	struct sigaction	creminal;
+
 	i = 0;
 	g_len = ft_strlen(av[2]);
 	if (ac == 3)
 	{
-		struct sigaction	creminal;
-
-	creminal.sa_sigaction = reciever;
-	sigaction(SIGUSR1, &creminal, NULL);
+		creminal.sa_sigaction = reciever;
+		sigaction(SIGUSR1, &creminal, NULL);
 		while (av[2][i])
 		{
 			convert_ben((unsigned char)av[2][i], av[1]);
