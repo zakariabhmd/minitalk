@@ -6,7 +6,7 @@
 /*   By: zbabahmi <zbabahmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:02:11 by zbabahmi          #+#    #+#             */
-/*   Updated: 2023/03/02 16:25:41 by zbabahmi         ###   ########.fr       */
+/*   Updated: 2023/03/08 23:34:41 by zbabahmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,13 @@ void	ft_putnbr(int n)
 		ft_putnbr(n / 10);
 		ft_putnbr(n % 10);
 	}
+}
+
+int ft_strlen(char* str){
+
+	int i; 
+	i = 0;
+	while(str[i]!='\0')
+		i++;
+	return (i);
 }
